@@ -28,4 +28,4 @@ func TestPerson_Update_Success(t *testing.T) {
 	assert.Equal(t, params.Fullname, item.Fullname)
 	assert.EqualValues(t, params.Gender, string(*item.Gender))
 	assert.EqualValues(t, params.BirthDateStr, item.BirthDate.Format("2006-01-02"))
-}
+}	

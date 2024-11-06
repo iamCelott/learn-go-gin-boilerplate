@@ -10,6 +10,7 @@ import (
 var (
 	accountHandler *AccountHandler
 	personHandler  *PersonHandler
+	authorHandler  *AuthorHandler
 )
 
 func SetupRestHandlers(app *gin.Engine) {
@@ -18,6 +19,7 @@ func SetupRestHandlers(app *gin.Engine) {
 	accountHandler = NewAccountHandler(
 		handler, service.GetAccountService(), service.GetPersonService())
 	personHandler = NewPersonHandler(handler, service.GetPersonService())
+	authorHandler = NewAuthorHandler(handler, service.GetAuthorService())
 
 	setupRoutes(app)
 }
@@ -25,4 +27,5 @@ func SetupRestHandlers(app *gin.Engine) {
 func setupRoutes(app *gin.Engine) {
 	accountHandler.Route(app)
 	personHandler.Route(app)
+	authorHandler.Route(app)
 }
